@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,38 +11,39 @@
     <link rel="stylesheet" href="../css/style3.css">
     <title>Document</title>
 </head>
+
 <body>
     <!-- START NAVBAR -->
     <div class="container-fluid d-flex  justify-content-center" style="height: 75px; background-color: #fff;">
-      <nav class="nav_main mt-4"> 
-          <div class="nav_start" style="margin-top: -30px">
-              <!-- <i style="font-size: 26px; color: black;" class="bi bi-activity"></i> -->
-              <img width="100%" height="80px" src="../Images_product/logo.jpg" alt="">
-          </div>
-          <div class="nav_center" style="margin-left: 220px;">  
-          </div>
-          <div class="nav_end" style="margin-left: 150px;" >
-              <i style=" font-family: 800; color: black; font-size: 26px; margin-right: 15px;" class="bi bi-search"  ></i>
-              <i style=" font-family: 800; color: black; font-size: 26px; margin-right: 15px;" class="bi bi-person" ></i>
-              <i style=" font-family: 800; color: black; font-size: 26px;" class="bi bi-bag"></i>
+        <nav class="nav_main mt-4">
+            <div class="nav_start" style="margin-top: -30px">
+                <!-- <i style="font-size: 26px; color: black;" class="bi bi-activity"></i> -->
+                <img width="100%" height="80px" src="https://i.pinimg.com/originals/d5/9f/a6/d59fa6016093e9b57738fcbca1cd93d9.png" alt="">
+            </div>
+            <div class="nav_center" style="margin-left: 220px;">
+            </div>
+            <div class="nav_end" style="margin-left: 150px;">
+                <i style=" font-family: 800; color: black; font-size: 26px; margin-right: 15px;" class="bi bi-search"></i>
+                <i style=" font-family: 800; color: black; font-size: 26px; margin-right: 15px;" class="bi bi-person"></i>
+                <i style=" font-family: 800; color: black; font-size: 26px;" class="bi bi-bag"></i>
 
-          </div>
-      </nav>
-  </div>
+            </div>
+        </nav>
+    </div>
 
-  <!-- END NAVBAR -->
+    <!-- END NAVBAR -->
 
     <!-- START SẢN PHẨM -->
-        <div class="container mt-5 my_container">
-            <div class="row my_row ms-5" >
-              <div class="col-md-5 my_container_carosel" >
+    <div class="container mt-5 my_container">
+        <div class="row my_row ms-5">
+            <div class="col-md-5 my_container_carosel">
                 <img src="../images_sanpham/album1/jean1.jpg" width="100%" alt="">
-               </div>
+            </div>
 
-                <div class="col-md-7 my_info_sanpham">
-                  <div style="margin-left: 130px;">
+            <div class="col-md-7 my_info_sanpham">
+                <div style="margin-left: 130px;">
                     <div class="info_tieude mb-5">
-                        <p class="btn btn-light mb-3" style="font-size: 22px; background-color: #ccc;">Phổ biến</p>
+                        <p class="btn btn-light mb-3" style="font-size: 22px; background-color: #ccc;">Thông tin chi tiết sản phẩm</p>
                         <p style="font-size: 50px;">Áo Thun</p>
                     </div>
                     <div class="info_danhgia mb-2" style="display: flex; ">
@@ -52,48 +54,42 @@
                         <i class="bi bi-star-half"></i>
                         <p style="margin-left: 12px;">132 lượt đánh giá</p>
                     </div>
-                    <div class="info_local_ship mb-4" style="display: flex;">
-                        <!-- <b class="me-5" style="color: #EDA3B5;">Thông tin</b>
-                        <b class="me-5">Nhãn hiệu</b>
-                        <b>Vận chuyển</b> -->
-                        <img width="80%" src="img/img_ttvc.png" alt="">
-                        <hr>
-                    </div>
+
                     <div class="info_mota mb-3">
-                       <p style="color: #8E8E93;">Mô tả : Áo chống nhăn tốt, dễ giặt sạch, nhanh khô.Giặt tay hay giặt máy thoải mái không sợ ra màu, nhăn , mất form </p>
+                        <p style="color: #8E8E93;">Mô tả : Áo chống nhăn tốt, dễ giặt sạch, nhanh khô.Giặt tay hay giặt máy thoải mái không sợ ra màu, nhăn , mất form </p>
                     </div>
 
                     <div class="info_select mt-4" style="display: flex; margin-bottom: 20px;">
                         <div class="info_select_left">
                             <p style="font-weight: 500;">Chọn size :</p>
                             <div class="form-check form-check-inline" style="margin: 0;">
-                                <button  class="btn btn-outline-danger" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                <label class="form-check-label" for="inlineRadio1">XS</label>
-                              </div>
-                              <div class="form-check form-check-inline" style="margin: 0;">
+                                <button class="btn btn-outline-danger" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">XS</label>
+                            </div>
+                            <div class="form-check form-check-inline" style="margin: 0;">
                                 <button class="btn btn-outline-danger" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                <label class="form-check-label" for="inlineRadio2">S</label>
-                              </div>
-                              <div class="form-check form-check-inline" style="margin: 0;">
-                                <button  class="btn btn-outline-danger" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                <label class="form-check-label" for="inlineRadio2">M</label>
-                              </div>
-                              <i class="bi bi-chevron-down"></i>                                                    
+                                    <label class="form-check-label" for="inlineRadio2">S</label>
+                            </div>
+                            <div class="form-check form-check-inline" style="margin: 0;">
+                                <button class="btn btn-outline-danger" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">M</label>
+                            </div>
+                            <i class="bi bi-chevron-down"></i>
                         </div>
                     </div>
 
                     <div class="info_buy mt-5" style="display: flex; margin-top: 16px;">
                         <div>
-                          <p style="font-weight: 500; font-size: 24px; margin-bottom: 0px; margin-top: 8px; color: crimson; ">125.000đ</p>
-                          <!-- <span class="" style="margin-right: 185px; font-weight: 600; ">1.750.000</span> <a href="#" class="btn btn-outline-danger">Mua ngay</a>  -->
+                            <p style="font-weight: 500; font-size: 24px; margin-bottom: 0px; margin-top: 8px; color: crimson; ">125.000đ</p>
+                            <!-- <span class="" style="margin-right: 185px; font-weight: 600; ">1.750.000</span> <a href="#" class="btn btn-outline-danger">Mua ngay</a>  -->
                         </div>
                         <button style="margin-left: 24px; background-color: #EDA3B5; color: #fff;" type="button" class="btn ms-5 ">Mua ngay</button>
                         <button style="margin-left: 24px;" type="button" class="btn btn-outline-danger ms-5">Thêm vào giỏ hàng</button>
                     </div>
                 </div>
-                </div>
             </div>
         </div>
+    </div>
     <!-- END SẢN PHẨM -->
 
     <!-- START RATE -->
@@ -102,7 +98,7 @@
             <div class="my_container_left mt-5">
                 <p style="font-size: 28px; margin-left: 16px; font-weight: 500;">Đánh giá</p>
             </div>
-    
+
             <div class="my_container_right mt-5">
                 <div style="display: flex;" class="show_vote_start">
                     <p style="margin-right: 30px; font-size: 23px ; font-weight: 500;">130 Đánh giá </p> <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -113,7 +109,7 @@
                 <div class="user_comment mb-5" style="display: flex;">
                     <div class="user_comment_left">
                         <div style="margin-right: 40px ;">
-                            <span  style="font-weight: 500;">Nguyễn Văn Hiếu</span> <br>
+                            <span style="font-weight: 500;">Nguyễn Văn Hiếu</span> <br>
                             <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
                     </div>
@@ -127,7 +123,7 @@
                 <div class="user_comment" style="display: flex;">
                     <div class="user_comment_left">
                         <div style="margin-right: 40px ;">
-                           <span style="font-weight: 500;">Nguyễn Xuân Đạt</span><br>
+                            <span style="font-weight: 500;">Nguyễn Xuân Đạt</span><br>
                             <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
                     </div>
@@ -143,32 +139,32 @@
 
         </div>
 
-            <div class="mt-5 mb-5" style="display: flex; justify-content: space-around;">
-            <p style="margin-left: 142px;"> <i class="bi bi-chevron-left"></i>Trước</p>                 
-                <ul class="pagination" style="display: flex; justify-content: space-around;">
-                  
-                  <li class="page-item "><a class="page-link" href="#">1</a></li>
+        <div class="mt-5 mb-5" style="display: flex; justify-content: space-around;">
+            <p style="margin-left: 142px;"> <i class="bi bi-chevron-left"></i>Trước</p>
+            <ul class="pagination" style="display: flex; justify-content: space-around;">
 
-                  <li class="page-item active" aria-current="page">
+                <li class="page-item "><a class="page-link" href="#">1</a></li>
+
+                <li class="page-item active" aria-current="page">
                     <a class="page-link" href="#">2</a>
-                  </li>
+                </li>
 
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">4</a></li>
-                  <li class="page-item"><a class="page-link" href="#">5</a></li>
-                  <li class="page-item"><a class="page-link" href="#">6</a></li>
-                  <li class="page-item"><a class="page-link" href="#">7</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                <li class="page-item"><a class="page-link" href="#">7</a></li>
 
-                </ul>
-                <p style="margin-right: 140px;">Tiếp <i class="bi bi-chevron-right"></i></p>                 
+            </ul>
+            <p style="margin-right: 140px;">Tiếp <i class="bi bi-chevron-right"></i></p>
 
 
-              </div>
+        </div>
     </div>
     <!-- END RATE -->
 
-       <!-- START FOOTER -->
-       <div class="container mt-5">
+    <!-- START FOOTER -->
+    <div class="container mt-5">
         <div style="border-bottom: solid 1px #c4c4c4;">
             <img src="../Images_product/footer_thanhtoan.png" alt="" width="100%">
 
@@ -264,8 +260,8 @@
                             <p><i class="fas fa-home me-3"></i> Hướng dẫn mua hàng tại cửa hàng</p>
                             <p>
                                 <i class="fas fa-envelope me-3"></i> Hướng dẫn mua hàng Online
-                                <p><i class="fas fa-phone me-3"></i> Liêm hệ : 0356579021</p>
-                                <p><i class="fas fa-print me-3"></i> nguyenhoang080721@gmail.com</p>
+                            <p><i class="fas fa-phone me-3"></i> Liêm hệ : 0356579021</p>
+                            <p><i class="fas fa-print me-3"></i> nguyenhoang080721@gmail.com</p>
                         </div>
                         <!-- Grid column -->
                     </div>
@@ -357,4 +353,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
+
 </html>

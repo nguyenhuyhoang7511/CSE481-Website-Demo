@@ -1,3 +1,6 @@
+<?php
+$data = $_GET['session'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +20,8 @@
     <div class="container-fluid d-flex  justify-content-center" style="height: 75px; background-color: #fff;">
         <nav class="nav_main mt-4">
             <div class="nav_start" style="margin-top: -30px">
-                <!-- <i style="font-size: 26px; color: black;" class="bi bi-activity"></i> -->
                 <img width="100%" height="80px" src="https://i.pinimg.com/originals/d5/9f/a6/d59fa6016093e9b57738fcbca1cd93d9.png" alt="">
+
             </div>
             <div class="nav_center" style="margin-left: 220px;">
             </div>
@@ -32,139 +35,181 @@
     </div>
 
     <!-- END NAVBAR -->
+    <hr>
 
-    <!-- START SẢN PHẨM -->
-    <div class="container mt-5 my_container">
-        <div class="row my_row ms-5">
-            <div class="col-md-5 my_container_carosel">
-                <img src="../images_sanpham/album1/ao1.png" width="100%" alt="">
-            </div>
+    <?php
+    $conn = mysqli_connect('localhost', 'root', '', 'hahalolo_tour');
+    if (!$conn) {
+        die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+    }
+    $sql = "SELECT * FROM db_thongtintour WHERE ma_tour = '$data'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = (mysqli_fetch_assoc($result))) {
+            $id_tour = $data;
+    ?>
 
-            <div class="col-md-7 my_info_sanpham">
-                <div style="margin-left: 130px;">
-                    <div class="info_tieude mb-5">
-                        <p class="btn btn-light mb-3" style="font-size: 22px; background-color: #ccc;">Thông tin chi tiết sản phẩm</p>
-                        <p style="font-size: 50px;">Áo Thun</p>
+            <!-- START SẢN PHẨM -->
+            <div class="container mt-5 my_container">
+                <div class="row my_row ms-5  ">
+                    <div class="col-md-5 my_container_carosel">
+                        <!-- <img src="../images_sanpham/album1/ao1.png" width="100%" alt=""> -->
+                        <?php
+
+                        // Include the database configuration file
+                        include '../dbConfig.php';
+
+                        // Get images from the database
+                        $query = $db->query("SELECT * FROM db_images WHERE ma_tour = '$id_tour'");
+
+                        if ($query->num_rows > 0) {
+                            while ($row1 = $query->fetch_assoc()) {
+                                // $imageURL = './crud_admin/uploads/'.$row1["file_name"];
+                                $imageURL = '../crud_admin/uploads/' . $row1["file_name"];
+                        ?>
+
+                                <img src="<?php echo $imageURL; ?>" alt="" class="card-img-top" alt="..." />
+
+                            <?php }
+                        } else { ?>
+                            <p>No image(s) found...</p>
+                        <?php } ?>
                     </div>
-                    <div class="info_danhgia mb-2" style="display: flex; ">
-                        <i class="bi bi-star-fill me-3"></i>
-                        <i class="bi bi-star-fill me-3"></i>
-                        <i class="bi bi-star-fill me-3"></i>
-                        <i class="bi bi-star-fill me-3"></i>
-                        <i class="bi bi-star-half"></i>
-                        <p style="margin-left: 12px;">132 lượt đánh giá</p>
-                    </div>
 
-                    <div class="info_mota mb-3">
-                        <p style="color: #8E8E93;">Mô tả : Áo chống nhăn tốt, dễ giặt sạch, nhanh khô.Giặt tay hay giặt máy thoải mái không sợ ra màu, nhăn , mất form </p>
-                    </div>
-
-                    <div class="info_select mt-4" style="display: flex; margin-bottom: 20px;">
-                        <div class="info_select_left">
-                            <p style="font-weight: 500;">Chọn size :</p>
-                            <div class="form-check form-check-inline" style="margin: 0;">
-                                <button class="btn btn-outline-danger" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">XS</label>
+                    <div class="col-md-7 my_info_sanpham">
+                        <div style="margin-left: 130px;">
+                            <div class="info_tieude mb-5">
+                                <p class="btn btn-light mb-3" style="font-size: 22px; background-color: #ccc;">Thông tin chi tiết sản phẩm</p>
+                                <p style="font-size: 50px;">Áo Thun unisex</p>
                             </div>
-                            <div class="form-check form-check-inline" style="margin: 0;">
-                                <button class="btn btn-outline-danger" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">S</label>
+                            <div class="info_danhgia mb-2" style="display: flex; ">
+                                <i class="bi bi-star-fill me-3"></i>
+                                <i class="bi bi-star-fill me-3"></i>
+                                <i class="bi bi-star-fill me-3"></i>
+                                <i class="bi bi-star-fill me-3"></i>
+                                <i class="bi bi-star-half"></i>
+                                <p style="margin-left: 12px;">132 lượt đánh giá</p>
                             </div>
-                            <div class="form-check form-check-inline" style="margin: 0;">
-                                <button class="btn btn-outline-danger" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">M</label>
+
+                            <div class="info_mota mb-3">
+                                <p style="color: #8E8E93;">Mô tả : Áo thun nam vải cá sấu cotton cao cấp mềm mịn, thoáng mát, phù hợp giá tiền. Đầy đủ các loại size </p>
                             </div>
-                            <i class="bi bi-chevron-down"></i>
-                        </div>
-                    </div>
 
-                    <div class="info_buy mt-5" style="display: flex; margin-top: 16px;">
-                        <div>
-                            <p style="font-weight: 500; font-size: 24px; margin-bottom: 0px; margin-top: 8px; color: crimson; ">115.000đ</p>
-                            <!-- <span class="" style="margin-right: 185px; font-weight: 600; ">1.750.000</span> <a href="#" class="btn btn-outline-danger">Mua ngay</a>  -->
-                        </div>
-                        <button style="margin-left: 24px; background-color: #EDA3B5; color: #fff;" type="button" class="btn ms-5 ">Mua ngay</button>
-                        <button style="margin-left: 24px;" type="button" class="btn btn-outline-danger ms-5">Thêm vào giỏ hàng</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END SẢN PHẨM -->
+                            <div class="info_select mt-4" style="display: flex; margin-bottom: 20px;">
+                                <div class="info_select_left">
+                                    <p style="font-weight: 500;">Chọn size :</p>
+                                    <div class="form-check form-check-inline" style="margin: 0;">
+                                        <button class="btn btn-outline-danger" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                            <label class="form-check-label" for="inlineRadio1">XS</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="margin: 0;">
+                                        <button class="btn btn-outline-danger" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">S</label>
+                                    </div>
+                                    <div class="form-check form-check-inline" style="margin: 0;">
+                                        <button class="btn btn-outline-danger" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">M</label>
+                                    </div>
+                                    <i class="bi bi-chevron-down"></i>
+                                </div>
+                            </div>
 
-    <!-- START RATE -->
-    <div class="container-fluid  mt-3" style="background-color: #fff;">
-        <div style="display: flex; justify-content: space-around;">
-            <div class="my_container_left mt-5">
-                <p style="font-size: 28px; margin-left: 16px; font-weight: 500;">Đánh giá</p>
-            </div>
-
-            <div class="my_container_right mt-5">
-                <div style="display: flex;" class="show_vote_start">
-                    <p style="margin-right: 30px; font-size: 23px ; font-weight: 500;">130 Đánh giá </p> <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    <button type="button" style="background-color: #EDA3B5 ; border: #EDA3B5;" class="btn btn-danger">Viết bình luận của bạn</button>
-                </div>
-
-
-                <div class="user_comment mb-5" style="display: flex;">
-                    <div class="user_comment_left">
-                        <div style="margin-right: 40px ;">
-                            <span style="font-weight: 500;">Nguyễn Văn Hiếu</span> <br>
-                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                        </div>
-                    </div>
-                    <div class="user_comment_right">
-                        <div>
-                            <b>Chất lượng sản phẩm rất tốt</b>
-                            <p>Sản phẩm đẹp và phù hợp với giá tiền </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="user_comment" style="display: flex;">
-                    <div class="user_comment_left">
-                        <div style="margin-right: 40px ;">
-                            <span style="font-weight: 500;">Nguyễn Xuân Đạt</span><br>
-                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                        </div>
-                    </div>
-                    <div class="user_comment_right">
-                        <div>
-                            <b>Chất lượng sản phẩm rất tốt</b>
-                            <p>Sản phẩm đẹp và rep tin nhắn nhanh </p>
+                            <div class="info_buy mt-5" style="display: flex; margin-top: 16px;">
+                                <div>
+                                    <p style="font-weight: 500; font-size: 24px; margin-bottom: 0px; margin-top: 8px; color: crimson; ">115.000đ</p>
+                                    <!-- <span class="" style="margin-right: 185px; font-weight: 600; ">1.750.000</span> <a href="#" class="btn btn-outline-danger">Mua ngay</a>  -->
+                                </div>
+                                <button style="margin-left: 24px; background-color: #EDA3B5; color: #fff;" type="button" class="btn ms-5 ">Mua ngay</button>
+                                <button style="margin-left: 24px;" type="button" class="btn btn-outline-danger ms-5">Thêm vào giỏ hàng</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- END SẢN PHẨM -->
+            <hr>
+            <!-- START RATE -->
+            <div class="container-fluid  mt-3" style="background-color: #fff;">
+                <div style="display: flex; justify-content: space-around;">
+                    <div class="my_container_left mt-5">
+                        <p style="font-size: 28px; margin-left: 16px; font-weight: 500;">Đánh giá</p>
+                    </div>
+
+                    <div class="my_container_right mt-5">
+                        <div style="display: flex;" class="show_vote_start">
+                            <p style="margin-right: 30px; font-size: 23px ; font-weight: 500;">130 Đánh giá </p> <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            <button type="button" style="background-color: #EDA3B5 ; border: #EDA3B5;" class="btn btn-danger">Viết bình luận của bạn</button>
+                        </div>
 
 
-        </div>
+                        <div class="user_comment mb-5" style="display: flex;">
+                            <div class="user_comment_left">
+                                <div style="margin-right: 40px ;">
+                                    <span style="font-weight: 500;">Nguyễn Văn Hiếu</span> <br>
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                            <div class="user_comment_right">
+                                <div>
+                                    <b>Chất lượng sản phẩm rất tốt</b>
+                                    <p>Sản phẩm đẹp và phù hợp với giá tiền </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user_comment" style="display: flex;">
+                            <div class="user_comment_left">
+                                <div style="margin-right: 40px ;">
+                                    <span style="font-weight: 500;">Nguyễn Xuân Đạt</span><br>
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                </div>
+                            </div>
+                            <div class="user_comment_right">
+                                <div>
+                                    <b>Chất lượng sản phẩm rất tốt</b>
+                                    <p>Sản phẩm đẹp và rep tin nhắn nhanh </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="mt-5 mb-5" style="display: flex; justify-content: space-around;">
-            <p style="margin-left: 142px;"> <i class="bi bi-chevron-left"></i>Trước</p>
-            <ul class="pagination" style="display: flex; justify-content: space-around;">
 
-                <li class="page-item "><a class="page-link" href="#">1</a></li>
+                </div>
 
-                <li class="page-item active" aria-current="page">
-                    <a class="page-link" href="#">2</a>
-                </li>
+                <div class="mt-5 mb-5" style="display: flex; justify-content: space-around;">
+                    <p style="margin-left: 142px;"> <i class="bi bi-chevron-left"></i>Trước</p>
+                    <ul class="pagination" style="display: flex; justify-content: space-around;">
 
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#">6</a></li>
-                <li class="page-item"><a class="page-link" href="#">7</a></li>
+                        <li class="page-item "><a class="page-link" href="#">1</a></li>
 
-            </ul>
-            <p style="margin-right: 140px;">Tiếp <i class="bi bi-chevron-right"></i></p>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                        <li class="page-item"><a class="page-link" href="#">7</a></li>
+
+                    </ul>
+                    <p style="margin-right: 140px;">Tiếp <i class="bi bi-chevron-right"></i></p>
 
 
-        </div>
-    </div>
+                </div>
+            </div>
+
+    <?php
+        }
+    } else
+        header('location: index.php');
+    mysqli_close($conn);
+    ?>
+
+
     <!-- END RATE -->
 
     <!-- START FOOTER -->
-    <div class="container mt-5">
+    <div class="container-fluid mt-5">
         <div style="border-bottom: solid 1px #c4c4c4;">
             <img src="../Images_product/footer_thanhtoan.png" alt="" width="100%">
 
@@ -175,7 +220,7 @@
             <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
                 <!-- Left -->
                 <div class="me-5 d-none d-lg-block">
-                    <span>Liên hệ chúng tôi qua mạng xã hội :</span>
+                    <b>Liên hệ chúng tôi qua mạng xã hội :</b>
                 </div>
                 <!-- Left -->
 
@@ -281,7 +326,7 @@
                     <div class="row">
                         <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
                             <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp" class="w-100" />
+                                <img src="http://chiase24.com/wp-content/uploads/2022/02/Tong-hop-cac-hinh-anh-background-dep-nhat-17.jpg" class="w-100" style="height: 150px;" />
                                 <a href="#!">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
                                 </a>
@@ -289,7 +334,7 @@
                         </div>
                         <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
                             <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/111.webp" class="w-100" />
+                                <img src="http://chiase24.com/wp-content/uploads/2022/02/Tong-hop-cac-hinh-anh-background-dep-nhat-43.jpg" class="w-100" style="height: 150px;" />
                                 <a href="#!">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
                                 </a>
@@ -297,7 +342,7 @@
                         </div>
                         <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
                             <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/112.webp" class="w-100" />
+                                <img src="http://chiase24.com/wp-content/uploads/2022/02/Tong-hop-cac-hinh-anh-background-dep-nhat-37.jpg" class="w-100" style="height: 150px;" />
                                 <a href="#!">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
                                 </a>
@@ -305,7 +350,7 @@
                         </div>
                         <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
                             <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/114.webp" class="w-100" />
+                                <img src="http://chiase24.com/wp-content/uploads/2022/02/Tong-hop-cac-hinh-anh-background-dep-nhat-28.jpg" class="w-100" style="height: 150px;" />
                                 <a href="#!">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
                                 </a>
@@ -313,7 +358,7 @@
                         </div>
                         <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
                             <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/115.webp" class="w-100" />
+                                <img src="http://chiase24.com/wp-content/uploads/2022/02/Tong-hop-cac-hinh-anh-background-dep-nhat-26.jpg" class="w-100" style="height: 150px;" />
                                 <a href="#!">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
                                 </a>
@@ -321,7 +366,7 @@
                         </div>
                         <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
                             <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/116.webp" class="w-100" />
+                                <img src="http://chiase24.com/wp-content/uploads/2022/02/Tong-hop-cac-hinh-anh-background-dep-nhat-24.jpg" class="w-100" style="height: 150px;" />
                                 <a href="#!">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
                                 </a>

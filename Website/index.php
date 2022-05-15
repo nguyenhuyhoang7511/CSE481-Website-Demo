@@ -18,7 +18,7 @@
         <div class="main_header">
             <div class="main_header_logo" style="flex-basis: 10%;">
                 <a href="index.php">
-                    <img src="Images_product/logo.jpg" style="width: 120px" alt="">
+                    <img src="https://i.pinimg.com/originals/d5/9f/a6/d59fa6016093e9b57738fcbca1cd93d9.png" style="width: 120px" alt="">
                 </a>
             </div>
 
@@ -70,7 +70,7 @@
                 <!-- <i class="bi bi-list"></i> -->
                 <!-- <div class="dropdown"> -->
                 <i class="bi bi-list " type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                      <!-- <i class=""></i> -->
+                    <!-- <i class=""></i> -->
                 </i>
 
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -100,7 +100,9 @@
     <!-- START BODY -->
     <div class="container mt-3 d-flex justify-content-between align-items-center">
         <div class="body_location d-flex">
-            <b><p><a href="index.php" style="text-decoration: none; color: black;">Trang Chủ</a></p></b>
+            <b>
+                <p><a href="index.php" style="text-decoration: none; color: black;">Trang Chủ</a></p>
+            </b>
         </div>
         <div class="body_search d-flex">
             <!-- <div>
@@ -112,7 +114,7 @@
                 <option value="2">Từ cao đến thấp</option>
                 <option value="3">Bán chạy</option>
                 <option value="4">Hàng mới về</option>
-              </select>
+            </select>
         </div>
     </div>
 
@@ -150,11 +152,11 @@
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
-                </button>
+            </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
-                </button>
+            </button>
         </div>
     </div>
 
@@ -164,6 +166,7 @@
     <div class="container mt-5 justify-content-between ">
         <!-- row-2 -->
         <div class="row">
+
             <div class="col">
                 <div class="card" style="width: 19rem;">
                     <img src="images_sanpham/album1/ao1.png" class="card-img-top" alt="...">
@@ -223,56 +226,59 @@
 
         <div class="row mt-5">
             <?php
-                $conn = mysqli_connect('localhost', 'root', '', 'hahalolo_tour');
-                if (!$conn) {
-                    die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
-                }
-                $sql = "SELECT * FROM db_thongtintour";
-                $result = mysqli_query($conn, $sql);
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = (mysqli_fetch_assoc($result))) {
-                        $id_tour = $row['ma_tour'];
-                ?>
-                       <div class="col-md-3">
-                            <div class="card" style="width: 19rem;">
-                                <?php
-                            
+            $conn = mysqli_connect('localhost', 'root', '', 'hahalolo_tour');
+            if (!$conn) {
+                die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+            }
+            $sql = "SELECT * FROM db_thongtintour";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = (mysqli_fetch_assoc($result))) {
+                    $id_tour = $row['ma_tour'];
+            ?>
+                    <div class="col-md-3">
+                        <div class="card" style="width: 19rem;">
+                            <?php
+
                             // Include the database configuration file
                             include 'dbConfig.php';
 
                             // Get images from the database
                             $query = $db->query("SELECT * FROM db_images WHERE ma_tour = '$id_tour'");
 
-                            if($query->num_rows > 0){
-                                while($row1 = $query->fetch_assoc()){
-                                // $imageURL = './crud_admin/uploads/'.$row1["file_name"];
-                                   $imageURL = './crud_admin/uploads/'.$row1["file_name"];
+                            if ($query->num_rows > 0) {
+                                while ($row1 = $query->fetch_assoc()) {
+                                    // $imageURL = './crud_admin/uploads/'.$row1["file_name"];
+                                    $imageURL = './crud_admin/uploads/' . $row1["file_name"];
                             ?>
 
-                                <img  src="<?php echo $imageURL; ?>" alt="" class="card-img-top" alt="..." />
+                                    <img src="<?php echo $imageURL; ?>" alt="" class="card-img-top" alt="..." />
 
-                            <?php }
-                            }else{ ?>
+                                <?php }
+                            } else { ?>
                                 <p>No image(s) found...</p>
                             <?php } ?>
-                                <div class="card-body">
-                                    <h5 class="card-title"><?php echo $row['loai_tour']; ?></h5>
-                                    <p class="card-text" style="min-height: 115px"><?php echo $row['mo_ta']; ?></p>
-                                    <div class="d-flex justify-content-between">
-                                        <span class="text-decoration-underline" style=" font-weight: 600; color: crimson;"><?php echo $row['gia_tour']; ?><sup>đ</sup></span>
-                                        <a href="giohang.html" class="btn btn-outline-danger">Xem thêm</a>
-                                    </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $row['loai_tour']; ?></h5>
+                                <p class="card-text" style="min-height: 115px"><?php echo $row['mo_ta']; ?></p>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-decoration-underline" style=" font-weight: 600; color: crimson;"><?php echo $row['gia_tour']; ?><sup>đ</sup></span>
+                                    <?php
+                                    $Session = './Detail/sanpham' . "." . 'php?session=' . $id_tour;
+                                    ?>
+                                    <a href="<?php echo $Session; ?>" class="btn btn-outline-danger">Xem thêm</a>
                                 </div>
-
                             </div>
-                        </div>
 
-                <?php
-                    }
-                } else
-                    header('location: index.php');
-                mysqli_close($conn);
-                ?>
+                        </div>
+                    </div>
+
+            <?php
+                }
+            } else
+                header('location: index.php');
+            mysqli_close($conn);
+            ?>
         </div>
     </div>
     <!-- END CARD_PRODUCT -->
@@ -281,9 +287,9 @@
 
 
     <!-- START FOOTER -->
-    <div class="container mt-5">
+    <div class="container-fluid mt-5">
         <div style="border-bottom: solid 1px #c4c4c4;">
-            <img src="Images_product/footer_thanhtoan.png" alt="" width="100%">
+            <img src="./Images_product/footer_thanhtoan.png" alt="" width="100%">
 
         </div>
         <!-- Footer -->
@@ -292,7 +298,7 @@
             <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
                 <!-- Left -->
                 <div class="me-5 d-none d-lg-block">
-                    <span>Liên hệ chúng tôi qua mạng xã hội :</span>
+                    <b>Liên hệ chúng tôi qua mạng xã hội :</b>
                 </div>
                 <!-- Left -->
 
@@ -377,8 +383,8 @@
                             <p><i class="fas fa-home me-3"></i> Hướng dẫn mua hàng tại cửa hàng</p>
                             <p>
                                 <i class="fas fa-envelope me-3"></i> Hướng dẫn mua hàng Online
-                                <p><i class="fas fa-phone me-3"></i> Liêm hệ : 0356579021</p>
-                                <p><i class="fas fa-print me-3"></i> nguyenhoang080721@gmail.com</p>
+                            <p><i class="fas fa-phone me-3"></i> Liêm hệ : 0356579021</p>
+                            <p><i class="fas fa-print me-3"></i> nguyenhoang080721@gmail.com</p>
                         </div>
                         <!-- Grid column -->
                     </div>
@@ -398,7 +404,7 @@
                     <div class="row">
                         <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
                             <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp" class="w-100" />
+                                <img src="http://chiase24.com/wp-content/uploads/2022/02/Tong-hop-cac-hinh-anh-background-dep-nhat-17.jpg" class="w-100" style="height: 150px;" />
                                 <a href="#!">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
                                 </a>
@@ -406,7 +412,7 @@
                         </div>
                         <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
                             <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/111.webp" class="w-100" />
+                                <img src="http://chiase24.com/wp-content/uploads/2022/02/Tong-hop-cac-hinh-anh-background-dep-nhat-43.jpg" class="w-100" style="height: 150px;" />
                                 <a href="#!">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
                                 </a>
@@ -414,7 +420,7 @@
                         </div>
                         <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
                             <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/112.webp" class="w-100" />
+                                <img src="http://chiase24.com/wp-content/uploads/2022/02/Tong-hop-cac-hinh-anh-background-dep-nhat-37.jpg" class="w-100" style="height: 150px;" />
                                 <a href="#!">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
                                 </a>
@@ -422,7 +428,7 @@
                         </div>
                         <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
                             <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/114.webp" class="w-100" />
+                                <img src="http://chiase24.com/wp-content/uploads/2022/02/Tong-hop-cac-hinh-anh-background-dep-nhat-28.jpg" class="w-100" style="height: 150px;" />
                                 <a href="#!">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
                                 </a>
@@ -430,7 +436,7 @@
                         </div>
                         <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
                             <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/115.webp" class="w-100" />
+                                <img src="http://chiase24.com/wp-content/uploads/2022/02/Tong-hop-cac-hinh-anh-background-dep-nhat-26.jpg" class="w-100" style="height: 150px;" />
                                 <a href="#!">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
                                 </a>
@@ -438,7 +444,7 @@
                         </div>
                         <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
                             <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/116.webp" class="w-100" />
+                                <img src="http://chiase24.com/wp-content/uploads/2022/02/Tong-hop-cac-hinh-anh-background-dep-nhat-24.jpg" class="w-100" style="height: 150px;" />
                                 <a href="#!">
                                     <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
                                 </a>

@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="row">
-                    <a href="#" style="text-decoration: none;"><img src="Images_product/logo.jpg" alt="" style="width: 90px; margin-right: 10px"><span style="font-size: 34px; color: #24a8d8;">2Hand Store</span></a>
+                    <a href="#" style="text-decoration: none;"><img src="https://i.pinimg.com/originals/d5/9f/a6/d59fa6016093e9b57738fcbca1cd93d9.png" alt="" style="width: 90px; margin-right: 10px"><span style="font-size: 34px; color: #24a8d8;">2Hand Store</span></a>
                 </div>
                 <div class="row mt-4">
                     <h2 style="margin-bottom: 0;">
