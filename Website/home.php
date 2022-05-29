@@ -17,7 +17,7 @@
     <div class="container mt-3">
         <div class="main_header">
             <div class="main_header_logo" style="flex-basis: 10%;">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="https://i.pinimg.com/originals/d5/9f/a6/d59fa6016093e9b57738fcbca1cd93d9.png" style="width: 120px" alt="">
                 </a>
             </div>
@@ -271,13 +271,13 @@
             <div class="container mt-5 justify-content-between" style="box-sizing: content-box">
                 <!-- row-2 -->
                 <div class="row">
-                    <a type="button" href="./crud_admin/userUpload.php" class="btn btn-danger mb-2" style="margin-left: 10px; width: 1300px;">Thêm sản phẩm</a>
+                    <a type="button" href="./crud_admin/indexUser.php" class="btn btn-danger mb-2" style="margin-left: 10px; width: 1300px;">Thêm sản phẩm</a>
 
                     <div class="col-md-3">
                         <div class="card" style="width: 19rem;">
                             <img src="images_sanpham/album1/ao1.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Sản phẩm 1</h5>
+                                <h5 class="card-title">Áo thun</h5>
                                 <p class="card-text">Áo chống nhăn tốt, dễ giặt sạch, nhanh khô.Giặt tay hay giặt máy thoải mái không sợ ra màu, nhăn , mất form</p>
                                 <div class="d-flex justify-content-between">
                                     <span class="text-decoration-underline" style=" font-weight: 600; color: crimson;">115.000<sup>đ</sup></span>
@@ -291,7 +291,7 @@
                         <div class="card" style="width: 19rem;">
                             <img src="images_sanpham/album1/ao4.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Sản phẩm 2</h5>
+                                <h5 class="card-title">Áo phông</h5>
                                 <p class="card-text">Áo chống nhăn tốt, dễ giặt sạch, nhanh khô.Giặt tay hay giặt máy thoải mái không sợ ra màu, nhăn , mất form</p>
                                 <div class="d-flex justify-content-between">
                                     <span class="text-decoration-underline" style=" font-weight: 600; color: crimson;">130.000<sup>đ</sup></span>
@@ -303,9 +303,9 @@
                     </div>
                     <div class="col-md-3">
                         <div class="card" style="width: 19rem;">
-                            <img src="images_sanpham/album1/ao5.png" class="card-img-top" alt="...">
+                            <img src="images_sanpham/album1/ao3.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Sản phẩm 3</h5>
+                                <h5 class="card-title">Áo thun 1</h5>
                                 <p class="card-text">Áo chống nhăn tốt, dễ giặt sạch, nhanh khô.Giặt tay hay giặt máy thoải mái không sợ ra màu, nhăn , mất form</p>
                                 <div class="d-flex justify-content-between">
                                     <span class="text-decoration-underline" style=" font-weight: 600; color: crimson;">110.000<sup>đ</sup></span>
@@ -319,7 +319,7 @@
                         <div class="card" style="width: 19rem;">
                             <img src="images_sanpham/album1/jean1.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Sản phẩm 4</h5>
+                                <h5 class="card-title">Quần jean</h5>
                                 <p class="card-text">Quần chống nhăn tốt, dễ giặt sạch, nhanh khô.Giặt tay hay giặt máy thoải mái không sợ ra màu, nhăn , mất form</p>
                                 <div class="d-flex justify-content-between">
                                     <span class="text-decoration-underline" style=" font-weight: 600; color: crimson;">125.000<sup>đ</sup></span>
@@ -331,50 +331,53 @@
                 </div>
 
                 <div class="row mt-5">
-                    <?php
-                    $conn = mysqli_connect('localhost', 'root', '', 'hahalolo_tour');
-                    if (!$conn) {
-                        die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
-                    }
-                    $sql = "SELECT * FROM db_thongtintour";
-                    $result = mysqli_query($conn, $sql);
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = (mysqli_fetch_assoc($result))) {
-                            $id_tour = $row['ma_tour'];
-                    ?>
-                            <div class="col-md-3">
-                                <div class="card" style="width: 19rem;">
+            <?php
+            $conn = mysqli_connect('localhost', 'root', '', 'hahalolo_tour');
+            if (!$conn) {
+                die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+            }
+            $sql = "SELECT * FROM db_thongtintour";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = (mysqli_fetch_assoc($result))) {
+                    $id_tour = $row['ma_tour'];
+            ?>
+                    <div class="col-md-3">
+                        <div class="card" style="width: 19rem;">
+                            <?php
+
+                            // Include the database configuration file
+                            include 'dbConfig.php';
+
+                            // Get images from the database
+                            $query = $db->query("SELECT * FROM db_images WHERE ma_tour = '$id_tour'");
+
+                            if ($query->num_rows > 0) {
+                                while ($row1 = $query->fetch_assoc()) {
+                                    // $imageURL = './crud_admin/uploads/'.$row1["file_name"];
+                                    $imageURL = './crud_admin/uploads/' . $row1["file_name"];
+                            ?>
+
+                                    <img src="<?php echo $imageURL; ?>" alt="" class="card-img-top" alt="..." />
+
+                                <?php }
+                            } else { ?>
+                                <p>No image(s) found...</p>
+                            <?php } ?>
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $row['loai_tour']; ?></h5>
+                                <p class="card-text" style="min-height: 115px"><?php echo $row['mo_ta']; ?></p>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-decoration-underline" style=" font-weight: 600; color: crimson;"><?php echo $row['gia_tour']; ?><sup>đ</sup></span>
                                     <?php
-
-                                    // Include the database configuration file
-                                    include 'dbConfig.php';
-
-                                    // Get images from the database
-                                    $query = $db->query("SELECT * FROM db_images WHERE ma_tour = '$id_tour'");
-
-                                    if ($query->num_rows > 0) {
-                                        while ($row1 = $query->fetch_assoc()) {
-                                            // $imageURL = './crud_admin/uploads/'.$row1["file_name"];
-                                            $imageURL = './crud_admin/uploads/' . $row1["file_name"];
+                                    $Session = './Detail/sanpham' . "." . 'php?session=' . $id_tour;
                                     ?>
-
-                                            <img src="<?php echo $imageURL; ?>" alt="" class="card-img-top" alt="..." />
-
-                                        <?php }
-                                    } else { ?>
-                                        <p>No image(s) found...</p>
-                                    <?php } ?>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?php echo $row['loai_tour']; ?></h5>
-                                        <p class="card-text" style="min-height: 115px"><?php echo $row['mo_ta']; ?></p>
-                                        <div class="d-flex justify-content-between">
-                                            <span class="text-decoration-underline" style=" font-weight: 600; color: crimson;"><?php echo $row['gia_tour']; ?><sup>đ</sup></span>
-                                            <a href="giohang.html" class="btn btn-outline-danger">Xem thêm</a>
-                                        </div>
-                                    </div>
-
+                                    <a href="<?php echo $Session; ?>" class="btn btn-outline-danger">Xem thêm</a>
                                 </div>
                             </div>
+
+                        </div>
+                    </div>
 
                     <?php
                         }

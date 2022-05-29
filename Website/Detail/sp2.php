@@ -44,7 +44,7 @@
                 <div style="margin-left: 130px;">
                     <div class="info_tieude mb-5">
                         <p class="btn btn-light mb-3" style="font-size: 22px; background-color: #ccc;">Thông tin chi tiết sản phẩm</p>
-                        <p style="font-size: 50px;">Áo Thun</p>
+                        <p style="font-size: 50px;">Áo Phông</p>
                     </div>
                     <div class="info_danhgia mb-2" style="display: flex; ">
                         <i class="bi bi-star-fill me-3"></i>

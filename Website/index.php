@@ -171,7 +171,7 @@
                 <div class="card" style="width: 19rem;">
                     <img src="images_sanpham/album1/ao1.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Sản phẩm 1</h5>
+                        <h5 class="card-title">Áo thun</h5>
                         <p class="card-text">Áo chống nhăn tốt, dễ giặt sạch, nhanh khô.Giặt tay hay giặt máy thoải mái không sợ ra màu, nhăn , mất form</p>
                         <div class="d-flex justify-content-between">
                             <span class="text-decoration-underline" style=" font-weight: 600; color: crimson;">115.000<sup>đ</sup></span>
@@ -185,7 +185,7 @@
                 <div class="card" style="width: 19rem;">
                     <img src="images_sanpham/album1/ao4.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Sản phẩm 2</h5>
+                        <h5 class="card-title">Áo phông</h5>
                         <p class="card-text">Áo chống nhăn tốt, dễ giặt sạch, nhanh khô.Giặt tay hay giặt máy thoải mái không sợ ra màu, nhăn , mất form</p>
                         <div class="d-flex justify-content-between">
                             <span class="text-decoration-underline" style=" font-weight: 600; color: crimson;">130.000<sup>đ</sup></span>
@@ -197,9 +197,9 @@
             </div>
             <div class="col">
                 <div class="card" style="width: 19rem;">
-                    <img src="images_sanpham/album1/ao5.png" class="card-img-top" alt="...">
+                    <img src="images_sanpham/album1/ao3.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Sản phẩm 3</h5>
+                        <h5 class="card-title">Áo thun 1</h5>
                         <p class="card-text">Áo chống nhăn tốt, dễ giặt sạch, nhanh khô.Giặt tay hay giặt máy thoải mái không sợ ra màu, nhăn , mất form</p>
                         <div class="d-flex justify-content-between">
                             <span class="text-decoration-underline" style=" font-weight: 600; color: crimson;">110.000<sup>đ</sup></span>
@@ -213,7 +213,7 @@
                 <div class="card" style="width: 19rem;">
                     <img src="images_sanpham/album1/jean1.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Sản phẩm 4</h5>
+                        <h5 class="card-title">Quần jean</h5>
                         <p class="card-text">Quần chống nhăn tốt, dễ giặt sạch, nhanh khô.Giặt tay hay giặt máy thoải mái không sợ ra màu, nhăn , mất form</p>
                         <div class="d-flex justify-content-between">
                             <span class="text-decoration-underline" style=" font-weight: 600; color: crimson;">125.000<sup>đ</sup></span>

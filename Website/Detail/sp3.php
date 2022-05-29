@@ -37,14 +37,14 @@
     <div class="container mt-5 my_container">
         <div class="row my_row ms-5">
             <div class="col-md-5 my_container_carosel">
-                <img src="../images_sanpham/album1/ao5.png" width="100%" alt="">
+                <img src="../images_sanpham/album1/ao3.png" width="100%" alt="">
             </div>
 
             <div class="col-md-7 my_info_sanpham">
                 <div style="margin-left: 130px;">
                     <div class="info_tieude mb-5">
                         <p class="btn btn-light mb-3" style="font-size: 22px; background-color: #ccc;">Thông tin chi tiết sản phẩm</p>
-                        <p style="font-size: 50px;">Áo Thun</p>
+                        <p style="font-size: 50px;">Áo Thun 1</p>
                     </div>
                     <div class="info_danhgia mb-2" style="display: flex; ">
                         <i class="bi bi-star-fill me-3"></i>

@@ -7,10 +7,13 @@ if (isset($_POST['btnRegister']) && $_POST['email']) { // kiểm tra người d�
     // Bước 2 : Bước thực hiện truy vấn
     $result = mysqli_query($conn, "SELECT * FROM db_nguoidung WHERE email='" . $_POST['email'] . "'");
     // $row = mysqli_num_rows($result);
-
+    if(strlen($_POST['password'])<=6){
+        $thongbao = "Độ dài của mật khẩu phải lớn hơn 6 kí tự";
+        header("location:form-signup.php?thongbao=$thongbao");
+    }
 
     // Bước 3 : xử lý kết quả
-     if (mysqli_num_rows($result) <= 0) {  // Nếu không có bản ghi nào(Tức là kiểm tra email này chưa được dùng => cho đăng kí)
+    else if (mysqli_num_rows($result) <= 0) {  // Nếu không có bản ghi nào(Tức là kiểm tra email này chưa được dùng => cho đăng kí)
         $token = md5($_POST['email']) . rand(10, 9999); // sử dụng giải thuật md5 để sinh ra chuỗi ngẫu nhiên được băm
         // echo $token;
 
@@ -33,7 +36,6 @@ if (isset($_POST['btnRegister']) && $_POST['email']) { // kiểm tra người d�
         $link = "<a href='http://localhost:8080/Website/activation_signup.php?key=" . $email . "&token=" . $token . "'>Nhấp vào đây để kích hoạt tài khoản</a>";
 
         include "send_email.php";
-
         if(sendEmailForAccountActive($email,$link))
         {
             $thongbao = "Vui lòng kiểm tra hộp thư của bạn để kích hoạt tài khoản ";
